@@ -1,0 +1,39 @@
+.ToDoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(247, 247, 247);
+  border-radius: 8px;
+}
+
+.Details {
+  display: flex;
+  flex-direction: column;
+  p {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  span {
+    font-size: 14px;
+  }
+  * {
+    margin: 0 !important;
+  }
+}
+
+.Controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 425px) {
+  .ToDoItem {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

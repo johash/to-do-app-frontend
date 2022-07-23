@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
 const initialState = {
   todos: null,
   error: "",
   loading: false,
+  statusUpdating: false,
+  isDeleting: false,
 };
 
 export const fetchAllTodos = createAsyncThunk("todo/fetchAllTodos", () => {
@@ -41,6 +42,17 @@ export const deleteTodo = createAsyncThunk("todo/deleteTodo", (id) => {
     });
 });
 
+export const updateTodo = createAsyncThunk("todo/updateTodo", (id) => {
+  return axios
+    .put("https://to-do-app-api.vercel.app/api/todos/" + id)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 export const todoSlice = createSlice({
   name: "todoSlice",
   initialState,
@@ -63,6 +75,12 @@ export const todoSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(deleteTodo.fulfilled, (state, { meta, payload }) => {
+      state.loading = false;
+    });
+    builder.addCase(updateTodo.pending, (state, { meta, payload }) => {
+      state.loading = true;
+    });
+    builder.addCase(updateTodo.fulfilled, (state, { meta, payload }) => {
       state.loading = false;
     });
   },

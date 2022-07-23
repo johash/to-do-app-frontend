@@ -1,6 +1,6 @@
 .ToDoArea {
   width: 100%;
-  background-color: whitesmoke;
+  background-color: #1c1c1c;
   height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
@@ -8,16 +8,19 @@
 
 .Container {
   width: 65%;
-  background-color: white;
+  background-color: #212121;
   height: 75vh;
   overflow-y: scroll;
   margin-top: 4rem;
-  box-shadow: 0px 0px 24px -12px rgba(131, 131, 131, 0.5);
+  box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.5);
   hr {
     margin: 0 !important;
     border: none;
     height: 0.1px;
-    background-color: #d6d6d6;
+    background-color: #3b3b3b;
+  }
+  &::-webkit-scrollbar {
+    width: 0 !important;
   }
 }
 
@@ -25,16 +28,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 1.5rem;
+  padding: 1.2rem 1.5rem;
   p {
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 !important;
+    color: #ae5ce4;
   }
   button {
     padding: 0.5rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2666cf;
     border: none;
     outline: none;
     border-radius: 6px;
@@ -45,7 +50,7 @@
 .ToDoContainer {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

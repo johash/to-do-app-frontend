@@ -6,19 +6,22 @@
   padding-right: 2rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background-color: rgb(247, 247, 247);
+  background-color: #1b1b1b;
   border-radius: 8px;
 }
 
 .Details {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   p {
     font-weight: 600;
     font-size: 20px;
+    color: #cfcfcf;
   }
   span {
     font-size: 14px;
+    color: #cfcfcf;
   }
   * {
     margin: 0 !important;
@@ -29,6 +32,34 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.CheckboxContainer {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DeleteButtonContainer {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: 25px;
+      height: 100%;
+      color: gray;
+    }
+  }
 }
 
 @media (max-width: 425px) {

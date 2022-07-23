@@ -25,7 +25,13 @@ const ToDoArea = () => {
       <div className={classes.Container}>
         <div className={classes.Header}>
           <p>To-Do List</p>
-          <Button flat auto aria-label="Add" onClick={openTodoForm}>
+          <Button
+            flat
+            auto
+            aria-label="Add"
+            onClick={openTodoForm}
+            color="primary"
+          >
             Add
           </Button>
         </div>
@@ -39,6 +45,7 @@ const ToDoArea = () => {
                   id={todo._id}
                   heading={todo.heading}
                   description={todo.description}
+                  status={todo.status}
                 />
               );
             })

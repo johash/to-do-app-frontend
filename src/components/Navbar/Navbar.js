@@ -6,7 +6,9 @@ const Navbar = () => {
   return (
     <nav className={classes.Navbar}>
       <div className={classes.Container}>
-        <h1>To-Do App</h1>
+        <div className={classes.LogoContainer}>
+          <img src="/assets/logo.png" alt="logo" />
+        </div>
         <ul className={classes.NavList}>
           <li>
             <span>All</span>

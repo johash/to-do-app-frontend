@@ -1,34 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./ToDoItem.module.scss";
 import { Checkbox, Button } from "@nextui-org/react";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 
-import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo } from "../../store/features/todoSlice";
+import { useDispatch } from "react-redux";
+import { deleteTodo, updateTodo } from "../../store/features/todoSlice";
 
-const ToDoItem = ({ heading, description, id }) => {
+const ToDoItem = ({ heading, description, id, status }) => {
+  const [isDone, setIsDone] = useState(status);
   const dispatch = useDispatch();
 
   const deleteOnClickhandler = () => {
     dispatch(deleteTodo(id));
   };
 
+  const checkboxOnChangeHandler = () => {
+    checkBoxHandler();
+    dispatch(updateTodo(id));
+  };
+
+  const checkBoxHandler = () => {
+    setIsDone(!isDone);
+  };
+
   return (
     <div className={classes.ToDoItem}>
       <div className={classes.Details}>
-        <p>{heading}</p>
-        <span>{description}</span>
+        <div className={classes.CheckboxContainer}>
+          <Checkbox
+            aria-label="checkbox"
+            onChange={checkboxOnChangeHandler}
+            isSelected={isDone}
+            color="primary"
+          />
+        </div>
+        <div className={classes.Heading}>
+          <p>{heading}</p>
+          <span>{description}</span>
+        </div>
       </div>
       <div className={classes.Controls}>
-        <Checkbox aria-label="checkbox" />
-        <Button
-          color="error"
-          auto
-          flat
-          aria-label="delete"
-          onClick={deleteOnClickhandler}
-        >
-          Delete
-        </Button>
+        <div className={classes.DeleteButtonContainer}>
+          <button aria-label="delete" onClick={deleteOnClickhandler}>
+            <RiDeleteBack2Fill />
+          </button>
+        </div>
       </div>
     </div>
   );

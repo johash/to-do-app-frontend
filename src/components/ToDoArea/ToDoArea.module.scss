@@ -51,6 +51,13 @@
   gap: 0.5rem;
 }
 
+.LoaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
 @media (max-width: 425px) {
   .Container {
     width: 90%;

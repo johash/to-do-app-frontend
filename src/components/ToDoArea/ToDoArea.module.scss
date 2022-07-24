@@ -20,7 +20,7 @@
     background-color: #3b3b3b;
     position: sticky;
     top: 80px;
-    z-index: 10000;
+    z-index: 500;
   }
   &::-webkit-scrollbar {
     width: 0 !important;
@@ -35,7 +35,7 @@
   justify-content: space-between;
   padding: 1.2rem 1.5rem;
   position: sticky;
-  z-index: 10000;
+  z-index: 500;
   top: 0;
   p {
     font-weight: 700;

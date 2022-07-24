@@ -20,6 +20,8 @@ const ToDoArea = () => {
     setIsModalOpen(false);
   };
 
+  console.log(todos);
+
   return (
     <section className={classes.ToDoArea}>
       <div className={classes.Container}>

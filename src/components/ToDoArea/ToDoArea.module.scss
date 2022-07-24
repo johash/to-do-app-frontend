@@ -18,6 +18,9 @@
     border: none;
     height: 0.1px;
     background-color: #3b3b3b;
+    position: sticky;
+    top: 80px;
+    z-index: 10000;
   }
   &::-webkit-scrollbar {
     width: 0 !important;
@@ -25,10 +28,15 @@
 }
 
 .Header {
+  background-color: #212121;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 1.5rem;
+  position: sticky;
+  z-index: 10000;
+  top: 0;
   p {
     font-weight: 700;
     font-size: 22px;
@@ -51,6 +59,7 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

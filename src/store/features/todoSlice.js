@@ -3,7 +3,6 @@ import axios from "axios";
 
 const initialState = {
   todos: null,
-  error: "",
   loading: false,
   statusUpdating: false,
   isDeleting: false,
@@ -13,7 +12,7 @@ export const fetchAllTodos = createAsyncThunk("todo/fetchAllTodos", () => {
   return axios
     .get("https://to-do-app-api.vercel.app/api/todos")
     .then((res) => {
-      return res.data.todos;
+      return res.data;
     })
     .catch((err) => {
       console.log(err);
@@ -63,7 +62,11 @@ export const todoSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllTodos.fulfilled, (state, { meta, payload }) => {
-      state.todos = payload;
+      if (payload.todos) {
+        state.todos = payload.todos;
+      } else {
+        state.todos = [];
+      }
     });
     builder.addCase(addTodo.pending, (state, { meta, payload }) => {
       state.loading = true;
